@@ -4,8 +4,8 @@ WORKDIR /app
 # Copy necessary directory
 COPY build.gradle ./build.gradle
 COPY settings.gradle ./settings.gradle
-COPY src ./src
-# COPY . . 
+# COPY src ./src
+COPY . . 
 RUN gradle build -x test  
 
 FROM openjdk:22-jdk
