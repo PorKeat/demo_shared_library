@@ -1,11 +1,9 @@
-// vars/deploySpring.groovy
-def call() {
+def call(String type) {
     script {
-        // Load Dockerfile and docker-compose.yml from shared library
-        writeFile file: 'dev.Dockerfile', text: libraryResource('spring/dev.Dockerfile')
-        writeFile file: 'docker-compose.yml', text: libraryResource('spring/docker-compose.yml')
 
-        // Build and run Docker Compose
+        writeFile file: 'dev.Dockerfile', text: libraryResource("${type}/dev.Dockerfile")
+        writeFile file: 'docker-compose.yml', text: libraryResource("${type}/docker-compose.yml")
         sh "docker compose up -d --build"
+
     }
 }
