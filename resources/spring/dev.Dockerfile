@@ -3,9 +3,10 @@ FROM gradle:${GRADLE_VERSION} AS builder
 WORKDIR /app
 # Copy necessary directory
 # COPY build.gradle ./build.gradle
+COPY gradlew ./gradlew
 # COPY settings.gradle ./settings.gradle
-# COPY src ./src
-COPY . . 
+COPY src ./src
+# COPY . . 
 RUN ./gradlew build -x test
 
 FROM openjdk:22-jdk
