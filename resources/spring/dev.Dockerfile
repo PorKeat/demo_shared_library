@@ -2,11 +2,11 @@ ARG GRADLE_VERSION=7.6
 FROM gradle:${GRADLE_VERSION} AS builder
 WORKDIR /app
 # Copy necessary directory
-COPY build.gradle ./build.gradle
-COPY settings.gradle ./settings.gradle
+# COPY build.gradle ./build.gradle
+# COPY settings.gradle ./settings.gradle
 # COPY src ./src
 COPY . . 
-RUN gradle build -x test  
+RUN ./gradlew build -x test
 
 FROM openjdk:22-jdk
 ARG PORT=8080
