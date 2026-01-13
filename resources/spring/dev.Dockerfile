@@ -1,12 +1,19 @@
 ARG GRADLE_VERSION=7.6
 FROM gradle:${GRADLE_VERSION} AS builder
 WORKDIR /app
+
 # Copy necessary directory
 # COPY build.gradle ./build.gradle
-# COPY gradlew ./gradlew
 # COPY settings.gradle ./settings.gradle
 # COPY src ./src
-COPY . . 
+# Copy all
+# COPY . . 
+
+COPY gradlew .
+COPY gradle ./gradle
+COPY build.gradle settings.gradle ./
+COPY src ./src
+RUN chmod +x ./gradlew
 RUN ./gradlew clean build
 
 FROM openjdk:22-jdk
