@@ -7,7 +7,7 @@ WORKDIR /app
 # COPY settings.gradle ./settings.gradle
 # COPY src ./src
 COPY . . 
-RUN ./gradlew clean build -x test --no-daemon
+RUN ./gradlew clean build
 
 FROM openjdk:22-jdk
 ARG PORT=8080
