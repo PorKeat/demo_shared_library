@@ -9,7 +9,7 @@ COPY src ./src
 RUN gradle build -x test  
 # -x test : means skip the test
 # serve
-FROM openjdk:17
+FROM openjdk:17-jdk
 ARG PORT=8080
 ENV PORT=${PORT}
 WORKDIR /app
