@@ -9,10 +9,11 @@ WORKDIR /app
 # Copy all
 # COPY . . 
 
-COPY gradlew .
-COPY gradle ./gradle
-COPY build.gradle settings.gradle ./
-COPY src ./src
+# COPY gradlew .
+# COPY gradle ./gradle
+# COPY build.gradle settings.gradle ./
+# COPY src ./src
+COPY . .
 RUN chmod +x ./gradlew
 RUN ./gradlew clean build
 
