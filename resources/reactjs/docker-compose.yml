@@ -1,0 +1,9 @@
+services: 
+  reactjs-nginx-srv: 
+    image: reactjs-nginx-jenkins:latest
+    build: .
+    pull_policy: build
+    container_name: reactjs-jenkin-cont
+    ports: 
+      - "3000:80"
+    
