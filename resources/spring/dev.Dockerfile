@@ -3,11 +3,11 @@ FROM gradle:${GRADLE_VERSION} AS builder
 WORKDIR /app
 # Copy necessary directory
 # COPY build.gradle ./build.gradle
-COPY gradlew ./gradlew
+# COPY gradlew ./gradlew
 # COPY settings.gradle ./settings.gradle
-COPY src ./src
-# COPY . . 
-RUN ./gradlew build -x test
+# COPY src ./src
+COPY . . 
+RUN ./gradlew clean build -x test --no-daemon
 
 FROM openjdk:22-jdk
 ARG PORT=8080
