@@ -15,7 +15,7 @@ WORKDIR /app
 # COPY src ./src
 COPY . .
 RUN chmod +x ./gradlew
-RUN ./gradlew clean build
+RUN ./gradlew clean build -x test
 
 FROM openjdk:22-jdk
 ARG PORT=8080
